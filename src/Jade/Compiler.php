@@ -54,6 +54,10 @@ class Compiler
      */
     protected $allowMixinOverride = false;
     /**
+     * @var string
+     */
+    protected $quote         = '"';
+    /**
      * @var bool
      */
     protected $terse         = false;
@@ -108,14 +112,25 @@ class Compiler
     protected $phpCloseBlock= array('endswitch','endif','endwhile','endfor','endforeach');
 
     /**
-     * @param bool  $prettyprint
+     * Compiler constructor.
+     * @param bool $prettyprint
+     * @param bool $phpSingleLine
+     * @param bool $allowMixinOverride
+     * @param string $quote
      * @param array $filters
      */
-    public function __construct($prettyprint = false, $phpSingleLine = fase, $allowMixinOverride = false, array $filters = array())
+    public function __construct(
+        $prettyprint = false,
+        $phpSingleLine = false,
+        $allowMixinOverride = false,
+        $quote = '"',
+        array $filters = array()
+    )
     {
         $this->prettyprint = $prettyprint;
         $this->phpSingleLine = $phpSingleLine;
         $this->allowMixinOverride = $allowMixinOverride;
+        $this->quote = $quote;
         $this->filters = $filters;
     }
 
@@ -1233,15 +1248,15 @@ class Compiler
                 if ($this->terse) {
                     $items[] = $key;
                 } else {
-                    $items[] = "{$key}='{$key}'";
+                    $items[] = "{$key}={$this->quote}{$key}{$this->quote}";
                 }
             } elseif ($value !== 'false' && $value !== 'null' && $value !== 'undefined') {
-                $items[] = "{$key}='{$value}'";
+                $items[] = "{$key}={$this->quote}{$value}{$this->quote}";
             }
         }
 
         if (count($classes)) {
-            $items[] = 'class=\'' . implode(' ', $classes) . '\'';
+            $items[] = "class={$this->quote}" . implode(' ', $classes) . $this->quote;
         }
 
         $this->buffer(implode(' ', $items), false);

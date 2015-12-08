@@ -1,3 +1,4 @@
+# TEST
 # Jade.php
 
 Jade.php adds inline PHP scripting support to the [Jade](http://jade-lang.com) template compiler.

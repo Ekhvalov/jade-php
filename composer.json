@@ -6,6 +6,35 @@
     "license": "MIT",
     "authors": [
         {
+            "name": "Konstantin Kudryasho",
+            "email": "konstantin.kudryashov@knplabs.com",
+            "homepage": "http://about.me/everzet",
+            "role": "Developer"
+        },
+        {
+            "name": "Janez Troha",
+            "email": "janez.troha@gmail.com",
+            "homepage": "http://flavors.me/dz0ny",
+            "role": "Maintainer"
+        },
+        {
+            "name": "Luke GB",
+            "email": "git@lukegb.com",
+            "homepage": "http://twitter.com/lukegb",
+            "role": "Maintainer"
+        },
+        {
+            "name": "Ronan Tessier",
+            "email": "ronan.tessier@vaconsulting.lu",
+            "homepage": "http://github.com/ronan-gloo",
+            "role": "Maintainer"
+        },
+        {
+            "name": "kylekatarnls",
+            "homepage": "http://github.com/kylekatarnls",
+            "role": "Maintainer"
+        },
+        {
             "name": "Alexander Safronov",
             "email": "me@safron.su",
             "role": "Developer"
@@ -13,7 +42,7 @@
         {
             "name": "Vladimir Ekhvalov",
             "email": "ekhvalov@gmail.com",
-            "role": "Maintainer"
+            "role": "Developer"
         }
     ],
     "require": {

@@ -1235,7 +1235,7 @@ class Compiler
                     if ($key == 'class') {
                         $value = $this->createCode('echo (is_array($_a = %1$s)) ? implode(" ", $_a) : $_a', $value);
                     } else {
-                        $value = $this->createCode(static::UNESCAPED, $value);
+                        $value = $this->createCode(static::ESCAPED, $value);
                     }
 
                     $this->prettyprint = $pp;
